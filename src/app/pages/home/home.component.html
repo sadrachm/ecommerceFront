@@ -1,0 +1,7 @@
+<h1 style="text-align: center;">Ecommerce Name</h1>
+
+<div class="table">
+    <div *ngFor="let el of products" >
+        <app-product-card [name]="el.product" [price]="el.price"></app-product-card>
+    </div>
+</div>
