@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { ProductService } from 'src/app/service/product.service';
 
 @Component({
   selector: 'app-product-card',
@@ -8,5 +9,15 @@ import { Component, Input } from '@angular/core';
 export class ProductCardComponent {
   @Input() name="Soap";
   @Input() price="$12.99";
+  @Input() id=0;
+  constructor(private productService:ProductService) {}
+  cart() {
+    console.log("Doing something")
+    this.productService.addToCart(this.id).subscribe({
+      next:data=> console.log(data),
+      error:err=> console.log(err)
+      
+    })
+  }
 
 }

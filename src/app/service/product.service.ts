@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Product } from '../model/Product';
 import { Observable } from 'rxjs';
+import { LoginService } from './login.service';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ import { Observable } from 'rxjs';
 export class ProductService {
   products:Array<Product> = []
 
-  constructor(private http:HttpClient) {
+  constructor(private http:HttpClient, private loginService:LoginService) {
     
    }
   
@@ -18,5 +19,11 @@ export class ProductService {
     header.append("accept","text/json");
     header.append("Access-Control-Allow-Origin", "*");
     return this.http.get<Array<Product>>("http://localhost:9000/products", {headers:header});
+  }
+  addToCart(productID:number) {    
+    let header:HttpHeaders = new HttpHeaders();
+    header.append("accept","text/json");
+    header.append("Access-Control-Allow-Origin", "*");
+    return this.http.post<Array<Product>>("http://localhost:9000/cart/"+this.loginService.userInfo.id, {id:productID}, {headers:header});
   }
 }
