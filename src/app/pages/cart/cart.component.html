@@ -2,5 +2,6 @@
 <div div *ngIf="products!==[]">
 <div *ngFor="let el of products">
     <h2>{{el.product}}</h2>
+    <h2>{{el.quantity}}</h2>
 </div></div>
 <button (click)="info()">get info</button>

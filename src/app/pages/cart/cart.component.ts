@@ -14,9 +14,12 @@ export class CartComponent {
     console.log(this.loginService.userInfo)
   }
   ngOnInit() {
-    console.log(this.loginService.userInfo)
-    this.products = this.loginService.userInfo.products;
-    console.log(this.products)
+    this.loginService.getUser(this.loginService.userInfo.id).subscribe({
+      next:data => {
+        this.loginService.userInfo = data;
+        this.products = data.products;
+      }
+    })
   }
 
 }
