@@ -8,12 +8,33 @@ import { LoginService } from 'src/app/service/login.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  password:String = "";
-  username:String="";
+  password:String = "123";
+  username:String="Bill";
+  message = "";
   constructor(private loginService:LoginService) {}
-  login() {
-    this.loginService.login(this.username,this.password).subscribe(data => {
-      console.log(data);
+  login() {    
+    this.loginService.login(this.username,this.password).subscribe({
+      next: data => {        
+      this.loginService.userInfo = data;
+      localStorage.setItem("userID", data.id as unknown as string);
+      },
+      error: err => this.message = err.error.message
+    })
+  }
+  logout() {
+    this.loginService.logout();
+  }
+  getInfo() {
+    console.log(this.loginService.userInfo);
+  }
+  register() {
+    this.loginService.register(this.username, this.password).subscribe({
+      next: (data) => {
+        this.loginService.userInfo = data;
+        localStorage.setItem("userID", data.id as unknown as string);
+      },
+      error: (err:any) => this.message = err.error.message,
+      complete:()=>{}
     })
   }
 

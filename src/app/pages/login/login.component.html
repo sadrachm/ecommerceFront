@@ -1,4 +1,9 @@
 <h1>Login Page</h1>
 <input type="text" [(ngModel)]="username" placeholder="username"/>
 <input type="text" [(ngModel)]="password" placeholder="password"/>
-<button (click)="login()"></button>
+<button (click)="login()">Login</button>
+<button (click)="register()">Register</button>
+<button (click)="logout()">Logout</button>
+<button (click)="getInfo()"></button>
+
+<h2>{{message}}</h2>
