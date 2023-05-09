@@ -1,5 +1,6 @@
 export interface Product {
     product:string,
     price:string,
-    id:number;
+    id:number,
+    quantity?:number,
 }

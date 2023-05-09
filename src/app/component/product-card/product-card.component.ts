@@ -12,7 +12,7 @@ export class ProductCardComponent {
   @Input() id=0;
   constructor(private productService:ProductService) {}
   cart() {
-    console.log("Doing something")
+    console.log(this.id)
     this.productService.addToCart(this.id).subscribe({
       next:data=> console.log(data),
       error:err=> console.log(err)
