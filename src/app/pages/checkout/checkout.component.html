@@ -1,1 +1,23 @@
-<p>checkout works!</p>
+<h1>Checkout Page</h1>
+<section>
+    <h1>Billing Address</h1>
+    <input placeholder="Name"/>
+    <input placeholder="Address"/>
+    <input placeholder="City, State zip"/>
+</section>
+<section>
+    <h1>Payment</h1>
+    <input placeholder="Name"/>
+    <input placeholder="Card Number"/>
+    <input placeholder="Expiration Date"/>
+    <input placeholder="CVV"/>
+</section>
+<section>
+    <h1>Review Cart</h1>
+    <div *ngFor="let el of product">
+        <h2>{{el.product}}</h2>
+        <p>{{el.quantity}} @ ${{el.price}}</p>
+    </div>
+    <h2>Total ${{total}}</h2>
+</section>
+<button (click)="purchase()">Purchase</button>

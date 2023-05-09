@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Product } from 'src/app/model/Product';
+import { LoginService } from 'src/app/service/login.service';
+import { ProductService } from 'src/app/service/product.service';
 
 @Component({
   selector: 'app-checkout',
@@ -6,5 +9,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./checkout.component.css']
 })
 export class CheckoutComponent {
+  @Input() product : Array<Product> = []
+  total = 0.00;
+  constructor(private userService : LoginService){}
+  ngOnInit() {
+    this.product = this.userService.userInfo.products;
+    console.log(this.product);
+    for (let el of this.product) {
+      this.total += Number(el.price) * Number(el.quantity);
+    }
+  }
+  purchase() {
+    
+  }
 
 }
