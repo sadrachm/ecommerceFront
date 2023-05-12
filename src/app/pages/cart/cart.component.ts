@@ -21,5 +21,21 @@ export class CartComponent {
       }
     })
   }
+  remove(product:Product) {
+    this.loginService.removeFromCart(product).subscribe({
+      next: data => {
+        this.loginService.userInfo = data;
+        this.products = data.products;
+      }
+    })
+  }
+  removeSingle(product:Product) {
+    this.loginService.removeSingleFromCart(product).subscribe({
+      next: data => {
+        this.loginService.userInfo = data;
+        this.products = data.products;
+      }
+    })
+  }
 
 }

@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 import { Product } from 'src/app/model/Product';
 import { LoginService } from 'src/app/service/login.service';
 import { ProductService } from 'src/app/service/product.service';
@@ -11,7 +12,7 @@ import { ProductService } from 'src/app/service/product.service';
 export class CheckoutComponent {
   @Input() product : Array<Product> = []
   total = 0.00;
-  constructor(private userService : LoginService){}
+  constructor(private userService : LoginService, private router:Router){}
   ngOnInit() {
     this.product = this.userService.userInfo.products;
     console.log(this.product);
@@ -20,7 +21,13 @@ export class CheckoutComponent {
     }
   }
   purchase() {
-    
+    this.userService.purchase().subscribe({
+      next: data => {
+        this.userService.userInfo = data;
+        console.log(data);
+        this.router.navigate(['/feedback'])
+      }
+    })
   }
 
 }

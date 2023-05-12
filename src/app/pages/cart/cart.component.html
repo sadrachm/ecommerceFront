@@ -1,8 +1,10 @@
 <h1 style="text-align: center;">Cart Page</h1>
 <div div *ngIf="products!==[]">
 <div *ngFor="let el of products">
-    <h2>{{el.product}}</h2>
-    <h2>{{el.quantity}}</h2>
+    <p>{{el.product}}</p>
+    <p>{{el.quantity}}</p>
+    <button (click)="remove(el)">Remove</button>
+    <button (click)="removeSingle(el)">Remove Single</button>
 </div></div>
 <button routerLink="/checkout">Checkout</button>
 <button (click)="info()">get info</button>

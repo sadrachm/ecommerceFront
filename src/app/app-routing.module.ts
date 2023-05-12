@@ -5,12 +5,14 @@ import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { CartComponent } from './pages/cart/cart.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
+import { FeedbackComponent } from './pages/feedback/feedback.component';
 
 const routes: Routes = [
   {path:"", component:LoginComponent},
   {path:"home", component:HomeComponent},
   {path:"cart", component:CartComponent},
-  {path:"checkout", component:CheckoutComponent}
+  {path:"checkout", component:CheckoutComponent},
+  {path:"feedback", component:FeedbackComponent}
 ];
 
 @NgModule({

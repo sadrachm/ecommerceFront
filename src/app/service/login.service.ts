@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Product } from '../model/Product';
 import {userModel} from "../model/userModel"
 
 let userTemplate : userModel = {
@@ -49,6 +50,24 @@ export class LoginService {
     header.append("Access-Control-Allow-Origin", "*");
     return this.http.get<userModel>("http://localhost:9000/user/"+userId, {headers:header});
 
+  }
+  purchase() {
+    let header:HttpHeaders = new HttpHeaders();
+    header.append("accept","text/json");
+    header.append("Access-Control-Allow-Origin", "*");
+    return this.http.post<userModel>("http://localhost:9000/checkout/"+this.userInfo.id, {headers:header});
+  }
+  removeFromCart(product: Product) {
+    let header:HttpHeaders = new HttpHeaders();
+    header.append("accept","text/json");
+    header.append("Access-Control-Allow-Origin", "*");
+    return this.http.patch<userModel>("http://localhost:9000/cart/"+this.userInfo.id, {...product},{headers:header});
+  }
+  removeSingleFromCart(product: Product) {
+    let header:HttpHeaders = new HttpHeaders();
+    header.append("accept","text/json");
+    header.append("Access-Control-Allow-Origin", "*");
+    return this.http.patch<userModel>("http://localhost:9000/cart/single/"+this.userInfo.id, product,{headers:header});
   }
 
 }
