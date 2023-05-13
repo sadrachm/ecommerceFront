@@ -26,6 +26,7 @@ export class LoginComponent {
   }
   getInfo() {
     console.log(this.loginService.userInfo);
+    console.log(localStorage.getItem("userID"))
   }
   register() {
     this.loginService.register(this.username, this.password).subscribe({

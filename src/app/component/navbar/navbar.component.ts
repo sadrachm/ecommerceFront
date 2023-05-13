@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LoginService } from 'src/app/service/login.service';
 
 @Component({
   selector: 'app-navbar',
@@ -6,5 +7,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
+  constructor(private loginService: LoginService) {}
+  ngOnInit() {
+    console.log(this.loginService.userInfo)
+    if (this.loginService.userInfo.id == 0 && localStorage.getItem("userID") !== null) {
+      this.loginService.getUser(Number(localStorage.getItem("userID"))).subscribe({
+        next: data => {
+          this.loginService.userInfo = data;
+          console.log(data, "");
+        }
+      })
+    }
+  }
 
 }
