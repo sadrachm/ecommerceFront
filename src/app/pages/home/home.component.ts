@@ -19,5 +19,8 @@ export class HomeComponent {
   })
 
   }
+  convert(val :any) {
+    return String(val);
+  }
 
 }

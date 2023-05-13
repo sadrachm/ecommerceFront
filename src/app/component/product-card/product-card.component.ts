@@ -9,6 +9,7 @@ import { ProductService } from 'src/app/service/product.service';
 export class ProductCardComponent {
   @Input() name="Soap";
   @Input() price="$12.99";
+  @Input() imageLink=""
   @Input() id=0;
   constructor(private productService:ProductService) {}
   cart() {
