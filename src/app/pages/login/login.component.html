@@ -1,11 +1,18 @@
-<h1>Login Page</h1>
-<input type="text" [(ngModel)]="username" placeholder="username"/>
-<input type="text" [(ngModel)]="password" placeholder="password"/>
-<button (click)="login()">Login</button>
-<button (click)="register()">Register</button>
-<button (click)="logout()">Logout</button>
-<button (click)="getInfo()"></button>
-<button routerLink="/home">Home</button>
-<button routerLink="/cart">Cart</button>
+<h1 style="text-align: center;">Login Page</h1>
+<!-- <form class="example-form"> -->
+<mat-form-field appearance="outline" class="example-full-width">
+    <mat-label>Username</mat-label>
+    <input  [(ngModel)]="username" matInput placeholder="Ex. Bill" value="">
+</mat-form-field>
+<mat-form-field appearance="outline"  class="example-full-width">
+    <mat-label>Password</mat-label>
+    <input [(ngModel)]="password"  matInput placeholder="Ex. Password" value="">
+</mat-form-field>
+<!-- </form> -->
+<div class="buttons">
+    <button mat-raised-button (click)="login()">Login</button>
+    <button  mat-raised-button (click)="register()">Register</button>
+    <button mat-raised-button (click)="logout()">Logout</button>
+</div>
 
 <h2>{{message}}</h2>

@@ -1,5 +1,14 @@
-<div style="background-color: grey;">
+<!-- <div style="background-color: grey;">
     <button routerLink="/home">Home</button>
     <button routerLink="/cart">Cart</button>
     <button routerLink="">Login</button>
-</div>
+</div> -->
+<p>
+    <mat-toolbar>
+    <span>Benders Inc</span>
+    <span class="example-spacer"></span>
+    <button (click)="change('home')" mat-button routerLink="/home">Home</button>
+    <span *ngIf="loggedIn" ><button mat-button (click)="change('cart')" routerLink="/cart">Cart</button></span>
+    <button (click)="change('login')" mat-button routerLink="">Login</button>
+  </mat-toolbar>
+</p>

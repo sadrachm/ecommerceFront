@@ -11,7 +11,11 @@ import { ProductCardComponent } from './component/product-card/product-card.comp
 import { CartComponent } from './pages/cart/cart.component';
 import { NavbarComponent } from './component/navbar/navbar.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
+import {MatToolbarModule} from '@angular/material/toolbar';
 import { FeedbackComponent } from './pages/feedback/feedback.component';
+import {MatButtonModule} from '@angular/material/button';
+import {MatInputModule} from '@angular/material/input';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -28,7 +32,11 @@ import { FeedbackComponent } from './pages/feedback/feedback.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatInputModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
