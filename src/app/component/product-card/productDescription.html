@@ -1,0 +1,21 @@
+<h1 mat-dialog-title>Hi {{data.name}}</h1>
+<div mat-dialog-content>
+    <h3>{{data.name}}</h3>
+    <p>{{data.price}}</p>
+    <p>{{data.description}}</p>
+    <div style="
+        height:430px;
+        display: flex;
+        justify-content: center;
+        align-items: center;"
+    >
+        <img style="transform: rotate(-90deg); display: block; width: 395px;" 
+            class="image" src={{data.url}}/>
+    </div>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-button (click)="addToCart()" cdkFocusInitial>Add To Cart</button>
+  <mat-spinner *ngIf="loading" [diameter]="30"></mat-spinner>
+</div>
+<div style="padding:10px 0"></div>

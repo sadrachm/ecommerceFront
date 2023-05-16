@@ -1,8 +1,7 @@
-<div class="container">
+<div class="container" (click)="openDialog()">
     <div class="block">
         <img style="transform: rotate(-90deg)" class="image" src={{imageLink}}/>
     </div>
     <h3>{{name}}</h3>
     <p>${{price}}</p>
-    <button (click)="cart()">Add To Cart</button>
 </div>
