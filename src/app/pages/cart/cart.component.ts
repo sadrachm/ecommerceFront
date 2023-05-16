@@ -64,5 +64,12 @@ export class CartComponent {
       }
     })
   }
+  sum(product:Product[]) {
+    let ans = 0;
+    for (let el of product) {
+      ans += Number(el.price);
+    }
+    return ans;
+  }
 
 }

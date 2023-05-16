@@ -34,4 +34,17 @@ describe('CartComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  it ('should sum to 24.43', () => {
+    let x = component.sum([])
+    expect(x).toEqual(0);
+  });
+  it ('should sum to 15', () => {
+    let x = component.sum([
+      {"price":"5.50", "id":1, "product":"test", "description":"test"}, 
+      {"price":"5.50", "id":1, "product":"test", "description":"test"},
+      {"price":"12.43", "id":1, "product":"test", "description":"test"},
+      {"price":"1", "id":1, "product":"test", "description":"test"},
+    ])
+    expect(x).toEqual(24.43);
+  })
 });
