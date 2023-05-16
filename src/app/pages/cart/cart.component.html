@@ -1,10 +1,23 @@
 <h1 style="text-align: center;">Cart Page</h1>
 <div div *ngIf="products!==[]">
 <div *ngFor="let el of products">
-    <p>{{el.product}}</p>
-    <p>{{el.quantity}}</p>
-    <button (click)="remove(el)">Remove</button>
-    <button (click)="removeSingle(el)">Remove Single</button>
+    <h3 style="text-align: center;">{{el.product}}</h3>
+    <!-- TODO: Would like to add description -->
+    <!-- <p>{{el.description}}</p> -->
+    
+    <div class="block">
+        <img style="transform: rotate(-90deg)" class="image" src={{el.imageLink}}/>
+    </div>
+    <div class="quantity">
+        <div>
+            <p style="font-size: 1.6rem; margin: 5px 0;">{{el.quantity}}</p>
+            <button mat-button (click)="add(el)" style="font-size: 1.3rem;"><i class="fa-solid fa-arrow-up"></i></button>
+            <button mat-button (click)="removeSingle(el)" style="font-size: 1.3rem;"><i class="fa-solid fa-arrow-down"></i></button>
+        </div>
+        <div>
+            <button color="warn" (click)="remove(el)" mat-fab style="font-size: 1rem;"><i class="fa-solid fa-trash"></i></button>
+        </div>
+    </div>
 </div></div>
 <button routerLink="/checkout">Checkout</button>
 <button (click)="info()">get info</button>

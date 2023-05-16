@@ -2,8 +2,8 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-around;
     margin-top: 20px;
-    max-width: 1240px;
+    max-width: 1400px;
     margin: auto;
 }

@@ -2,6 +2,6 @@
 
 <div class="table">
     <div *ngFor="let el of products" >
-        <app-product-card [name]="el.product" [price]="el.price" [id]="el.id" [imageLink]="convert(el.imageLink)"></app-product-card>
+        <app-product-card [name]="el.product" [price]="el.price" [id]="el.id" [imageLink]="convert(el.imageLink)" [description]="el.description"></app-product-card>
     </div>
 </div>

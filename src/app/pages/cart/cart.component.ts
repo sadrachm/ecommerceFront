@@ -21,34 +21,46 @@ export class CartComponent {
         next:data => {
           this.loginService.userInfo = data;
           this.products = data.products;
+          console.log(data);
         }
       })
     }
   }
   ngOnChange(changes: SimpleChanges) {
-    console.log("NANI")
   }
   remove(product:Product) {
+    console.log(product);
     this.loginService.removeFromCart(product).subscribe({
       next: data => {
         this.loginService.userInfo = data;
         this.products = data.products;
+      },
+      error:err => {
+        console.log(err);
       }
     })
   }
   removeSingle(product:Product) {
     this.loginService.removeSingleFromCart(product).subscribe({
       next: data => {
+        console.log(data);
         this.loginService.userInfo = data;
         this.products = data.products;
+      },
+      error: err => {
+        console.log(err)
       }
     })
   }
   add(product:Product) {
     this.productService.addToCart(Number(product.productId)).subscribe({
       next: data => {
-        this.loginService.userInfo.products = data;
-        this.products = data;
+        console.log(data);
+        this.loginService.userInfo.products = data.products;
+        this.products = data.products;
+      },
+      error: err => {
+        console.log(err)
       }
     })
   }

@@ -1,0 +1,21 @@
+.image {
+    display: block;
+    transition: all .4s ease-in-out;
+    width: 395px;
+}
+.block {
+    height: 450px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.quantity {
+    display: flex;
+    width:250px;
+    flex-direction: row;
+    margin: auto;
+    text-align: center;
+    align-items: center;
+    justify-content: space-around;
+    padding-bottom: 60px;
+}

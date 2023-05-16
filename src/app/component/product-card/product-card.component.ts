@@ -20,6 +20,7 @@ export class ProductCardComponent {
   @Input() name="Soap";
   @Input() price="$12.99";
   @Input() imageLink=""
+  @Input() description = ""
   @Input() id=0;
   constructor(private productService:ProductService, public dialog: MatDialog) {}
   cart() {
@@ -32,7 +33,7 @@ export class ProductCardComponent {
   }
   openDialog() {
     const dialogRef = this.dialog.open(ProductDescription, {
-      data: {name: this.name, price: this.price, description:"Something very long", url:this.imageLink, id:this.id},
+      data: {name: this.name, price: this.price, description:this.description, url:this.imageLink, id:this.id},
     });
 
     dialogRef.afterClosed().subscribe(result => {

@@ -61,12 +61,14 @@ export class LoginService {
     let header:HttpHeaders = new HttpHeaders();
     header.append("accept","text/json");
     header.append("Access-Control-Allow-Origin", "*");
+    product.id = Number(product.productId);
     return this.http.patch<userModel>("http://localhost:9000/cart/"+this.userInfo.id, {...product},{headers:header});
   }
   removeSingleFromCart(product: Product) {
     let header:HttpHeaders = new HttpHeaders();
     header.append("accept","text/json");
     header.append("Access-Control-Allow-Origin", "*");
+    if (product.quantity == 1) return this.removeFromCart(product);
     return this.http.patch<userModel>("http://localhost:9000/cart/single/"+this.userInfo.id, {...product},{headers:header});
   }
 
