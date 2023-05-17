@@ -71,5 +71,8 @@ export class CartComponent {
     }
     return ans;
   }
+  convert(quant:any, price:any) {
+    return Number(quant*price).toFixed(2);
+  }
 
 }
